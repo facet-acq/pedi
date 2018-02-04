@@ -1,8 +1,8 @@
 <?php
 
-require 'EDI/Pedi.php';
+require __DIR__.'/vendor/autoload.php';
 
-use EDI\Pedi;
+use Pedi\Pedi;
 
 echo "<pre>";
 // TODO: show you can Instantiate, Load, Parse, Read, and Validate for MVP
@@ -23,7 +23,7 @@ print count($edi) . " result(s) returned...\n";
 
 // sample print to ouput edi elements returned
 for ($i = 0; $i < count($edi); $i++) {
-    print_r($edi[$i]->data);    
+    print_r($edi[$i]->data);
 }
 
 // 5. output edi document as a string

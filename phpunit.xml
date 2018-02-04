@@ -1,4 +1,4 @@
-<phpunit colors="true" bootstrap="tests/autoload.php">
+<phpunit colors="true" bootstrap="vendor/autoload.php">
   <filter>
         <whitelist>
             <directory suffix=".php">EDI/X12/</directory>

@@ -1,21 +1,18 @@
 <?php
 
-namespace EDI;
+namespace Pedi;
 
-require_once('EDI/X12/Parser.php');
-require_once('EDI/X12/SchemaTree.php');
-
-use EDI\X12\Parser;
-use EDI\X12\SchemaTree;
+use Pedi\X12\Parser;
+use Pedi\X12\SchemaTree;
 
 class Pedi
 {
     // holds complete edi documents from parser
     private $documents = [];
-    // indicates whether to aggregate warnings and errors 
+    // indicates whether to aggregate warnings and errors
     // about an edi document
     private $validate = false;
-    // sets a default edi type as ASC X12 (instead of EDIFACT, TRADACOM, or 
+    // sets a default edi type as ASC X12 (instead of EDIFACT, TRADACOM, or
     // some proprietary XML document)
     private $edi_type = "X12";
     // holds an individual edi model to aid in parsing and validation
@@ -28,25 +25,21 @@ class Pedi
     private $prev = null;
     // array hash to store calculate max/min usage counts for edi elements
     private $counter = [];
-    
-    
+
+
 
     public function __construct($params = null)
     {
-
         if (count($params) > 0) {
             foreach ($params as $key => $value) {
                 $this->$key = $value;
             }
         }
-
     }
 
     public function read($path)
     {
-
         $this->load($path);
-
     }
 
     public function documents()
@@ -57,16 +50,11 @@ class Pedi
     public function load($path)
     {
         try {
-
             $input_edi = file_get_contents($path);
             $this->documents = Parser::parse($input_edi);
-
             $this->doSomething();
-
         } catch (Exception $e) {
-
             echo $e->getMessage();
-
         }
     }
 
@@ -86,7 +74,7 @@ class Pedi
             $this->edi_schema_tree = new SchemaTree($schema_path);
             // get handle to root of tree for use in x12 processing
             $this->tree_root = $this->edi_schema_tree->root();
-            
+
             if($this->debug) {
                 print "/" . str_repeat("*", 20) . " DEBUG EDI DOCUMENT PARSE" . str_repeat("*", 20) . "/\n";
             }
@@ -104,25 +92,25 @@ class Pedi
                 $path .= $current_element . "/";
                 //print "Try to find a node @ path: " . $path . "\n";
                 $node = $this->findNodeByPath($this->tree_root, $path);
-                
+
                 if ($node != null) {
                     if($this->debug) {
                         print $i-1 . ". Found Node  " . $path . "\n";
                         print "\t" . $path ." can be used: " . $node['max'] . " time(s)\n";
                     }
-                    
+
                     // need to count occurrences for basic validation
                     if(!array_key_exists($path, $this->counter)) {
 
                         $this->counter[$path] = 1;
 
-                    } 
+                    }
                     else {
                         //  if($path = "ST/CTT/")
                         $this->counter[$path]++;
-                        
+
                     }
-                    
+
                     //print_r($node);
 
                     // TODO: change into actual class
@@ -131,11 +119,11 @@ class Pedi
                     $nod->name = $document->segments[$i][0];
                     $nod->data = array_slice($document->segments[$i], 1);
                     $nod->children = [];
-            
+
                     // set prev node = $tree on start
-                    // we add the ST element node as tree root, 
+                    // we add the ST element node as tree root,
                     // set prev = st
-                    
+
                     // * create a pointer to the parent of a node
                     if (count($this->tree) < 1) {
 
@@ -152,12 +140,12 @@ class Pedi
                         // }
 
                         array_push($this->prev->children, $nod);
-                        
+
                     }
 
                     $nod->parent = $this->prev;
                     $this->prev = $nod;
-                    
+
                     //addDataToNodeByPath($tree_root, $path, array_splice($document->segments[$i], 1));
                     //array_push($node['data'], array_splice($document->segments[$i], 1));
 
@@ -186,9 +174,9 @@ class Pedi
                         }
                     }
 
-                } 
+                }
                 else {
-                    
+
                     $tmp = explode('/', $path);
                     $tmp2 = array_splice($tmp, -3);
                     $path = implode('/', $tmp) . "/";
@@ -199,7 +187,7 @@ class Pedi
 
                     $this->prev = $this->prev->parent;
                     $i--;
-                    
+
                     // if ($this->prev) {
                     //     $this->prev = $this->prev->parent;
                     //     $i--;
@@ -212,7 +200,7 @@ class Pedi
                     // }
 
                 }
-                
+
             }
 
             if($this->debug) {
@@ -291,9 +279,9 @@ class Pedi
     public function find_node(&$arr, $children, &$path, $count)
     {
         //print "Gonna find shit: " . $path[$count] . "\n";
-        //print $count + 1 . " ? " . count($path) . "\n";    
-    
-    
+        //print $count + 1 . " ? " . count($path) . "\n";
+
+
         //print $path[$count - 1] . " has child count of : " . count($children). "\n";
         // foreach($children as $child) {
         //     print $child->name . "\n";
@@ -328,7 +316,7 @@ class Pedi
         }
 
         return $arr;
-        
+
         // if ( $count + 1 === count($path)) {
         //     //print_r($arr);
         // }

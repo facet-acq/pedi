@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="PediTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/PediTest.php" tests="4" assertions="5" errors="0" failures="0" skipped="0" time="0.470613">
-    <testcase name="testPediLoadsAnEDIFile" class="PediTest" classname="PediTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/PediTest.php" line="11" assertions="2" time="0.018177"/>
-    <testcase name="testPediHandlesLoadingBadFile" class="PediTest" classname="PediTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/PediTest.php" line="22" assertions="1" time="0.004979"/>
-    <testcase name="testThrowsErrorOnNoFile" class="PediTest" classname="PediTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/PediTest.php" line="32" assertions="1" time="0.003583"/>
-    <testcase name="testItLoadsTheAppropriateX12Schema" class="PediTest" classname="PediTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/PediTest.php" line="39" assertions="1" time="0.443874">
-      <system-out>EDIFACT1850_003050</system-out>
-    </testcase>
+  <testsuite name="converter" tests="11" assertions="12" errors="2" failures="0" skipped="0" time="0.010322">
+    <testsuite name="DocumentTest" file="/Users/daniel.furman/Development/facet/pedi/tests/DocumentTest.php" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.003396">
+      <testcase name="testConstructor" class="DocumentTest" classname="DocumentTest" file="/Users/daniel.furman/Development/facet/pedi/tests/DocumentTest.php" line="9" assertions="1" time="0.002846"/>
+      <testcase name="testDocumentToSring" class="DocumentTest" classname="DocumentTest" file="/Users/daniel.furman/Development/facet/pedi/tests/DocumentTest.php" line="16" assertions="1" time="0.000550"/>
+    </testsuite>
+    <testsuite name="ParserTest" file="/Users/daniel.furman/Development/facet/pedi/tests/ParserTest.php" tests="5" assertions="7" errors="0" failures="0" skipped="0" time="0.003854">
+      <testcase name="testParserFailsWithNoResource" class="ParserTest" classname="ParserTest" file="/Users/daniel.furman/Development/facet/pedi/tests/ParserTest.php" line="12" assertions="1" time="0.001368"/>
+      <testcase name="testParserFailsWithEmptyResource" class="ParserTest" classname="ParserTest" file="/Users/daniel.furman/Development/facet/pedi/tests/ParserTest.php" line="22" assertions="1" time="0.000263"/>
+      <testcase name="testParserRejectsEDIWithNoISA" class="ParserTest" classname="ParserTest" file="/Users/daniel.furman/Development/facet/pedi/tests/ParserTest.php" line="32" assertions="1" time="0.000452"/>
+      <testcase name="testParserReturnsArray" class="ParserTest" classname="ParserTest" file="/Users/daniel.furman/Development/facet/pedi/tests/ParserTest.php" line="39" assertions="1" time="0.001009"/>
+      <testcase name="testParserHandlesSubElementSeparator" class="ParserTest" classname="ParserTest" file="/Users/daniel.furman/Development/facet/pedi/tests/ParserTest.php" line="46" assertions="3" time="0.000762"/>
+    </testsuite>
+    <testsuite name="PediTest" file="/Users/daniel.furman/Development/facet/pedi/tests/PediTest.php" tests="4" assertions="3" errors="2" failures="0" skipped="0" time="0.003072">
+      <testcase name="testPediLoadsAnEDIFile" class="PediTest" classname="PediTest" file="/Users/daniel.furman/Development/facet/pedi/tests/PediTest.php" line="9" assertions="1" time="0.001588">
+        <error type="PHPUnit\Framework\Error\Notice">PediTest::testPediLoadsAnEDIFile
+Undefined property: Pedi\Pedi::$schema
+
+/Users/daniel.furman/Development/facet/pedi/src/Pedi.php:67
+/Users/daniel.furman/Development/facet/pedi/src/Pedi.php:55
+/Users/daniel.furman/Development/facet/pedi/src/Pedi.php:42
+/Users/daniel.furman/Development/facet/pedi/tests/PediTest.php:13
+</error>
+      </testcase>
+      <testcase name="testPediHandlesLoadingBadFile" class="PediTest" classname="PediTest" file="/Users/daniel.furman/Development/facet/pedi/tests/PediTest.php" line="20" assertions="1" time="0.000349"/>
+      <testcase name="testThrowsErrorOnNoFile" class="PediTest" classname="PediTest" file="/Users/daniel.furman/Development/facet/pedi/tests/PediTest.php" line="30" assertions="1" time="0.000366"/>
+      <testcase name="testItLoadsTheAppropriateX12Schema" class="PediTest" classname="PediTest" file="/Users/daniel.furman/Development/facet/pedi/tests/PediTest.php" line="37" assertions="0" time="0.000769">
+        <error type="PHPUnit\Framework\Error\Notice">PediTest::testItLoadsTheAppropriateX12Schema
+Undefined property: Pedi\Pedi::$schema
+
+/Users/daniel.furman/Development/facet/pedi/src/Pedi.php:67
+/Users/daniel.furman/Development/facet/pedi/src/Pedi.php:55
+/Users/daniel.furman/Development/facet/pedi/src/Pedi.php:42
+/Users/daniel.furman/Development/facet/pedi/tests/PediTest.php:40
+</error>
+      </testcase>
+    </testsuite>
   </testsuite>
 </testsuites>
