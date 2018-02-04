@@ -12,7 +12,7 @@ final class PediTest extends TestCase
     {
         $pedi = new Pedi();
         $this->assertInstanceOf(Pedi::class, $pedi);
-        $pedi->read(__DIR__ . '/test_files/cws23.x12');
+        $pedi->read(__DIR__ . "/test_files/cws23.x12");
         $this->assertInternalType("array", $pedi->documents());
     }
 

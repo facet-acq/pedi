@@ -28,7 +28,8 @@ class Pedi
     private $prev = null;
     // array hash to store calculate max/min usage counts for edi elements
     private $counter = [];
-    
+    private $schema = "850_3050";
+    private $debug = false;
     
 
     public function __construct($params = null)
@@ -75,7 +76,7 @@ class Pedi
         /* Loop the imported EDI documents */
         foreach ($this->documents as $document) {
             $path = "";
-
+            
             $schema = ($this->schema != null) ? $this->schema : $this->getDocumentSchemaFromX12($document);
             // look for a schema file at path + schema + .json
             $schema_path = __DIR__ . "/X12/schemas/" . $schema . ".json";

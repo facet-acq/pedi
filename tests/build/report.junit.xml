@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="PediTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/PediTest.php" tests="4" assertions="5" errors="0" failures="0" skipped="0" time="0.470613">
-    <testcase name="testPediLoadsAnEDIFile" class="PediTest" classname="PediTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/PediTest.php" line="11" assertions="2" time="0.018177"/>
-    <testcase name="testPediHandlesLoadingBadFile" class="PediTest" classname="PediTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/PediTest.php" line="22" assertions="1" time="0.004979"/>
-    <testcase name="testThrowsErrorOnNoFile" class="PediTest" classname="PediTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/PediTest.php" line="32" assertions="1" time="0.003583"/>
-    <testcase name="testItLoadsTheAppropriateX12Schema" class="PediTest" classname="PediTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/PediTest.php" line="39" assertions="1" time="0.443874">
-      <system-out>EDIFACT1850_003050</system-out>
-    </testcase>
+  <testsuite name="converter" tests="11" assertions="14" errors="0" failures="0" skipped="0" time="0.942653">
+    <testsuite name="DocumentTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/DocumentTest.php" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="0.018872">
+      <testcase name="testConstructor" class="DocumentTest" classname="DocumentTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/DocumentTest.php" line="9" assertions="1" time="0.012567"/>
+      <testcase name="testDocumentToSring" class="DocumentTest" classname="DocumentTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/DocumentTest.php" line="16" assertions="1" time="0.006305"/>
+    </testsuite>
+    <testsuite name="ParserTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/ParserTest.php" tests="5" assertions="7" errors="0" failures="0" skipped="0" time="0.032150">
+      <testcase name="testParserFailsWithNoResource" class="ParserTest" classname="ParserTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/ParserTest.php" line="14" assertions="1" time="0.007215"/>
+      <testcase name="testParserFailsWithEmptyResource" class="ParserTest" classname="ParserTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/ParserTest.php" line="24" assertions="1" time="0.003722"/>
+      <testcase name="testParserRejectsEDIWithNoISA" class="ParserTest" classname="ParserTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/ParserTest.php" line="34" assertions="1" time="0.003797"/>
+      <testcase name="testParserReturnsArray" class="ParserTest" classname="ParserTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/ParserTest.php" line="41" assertions="1" time="0.011292"/>
+      <testcase name="testParserHandlesSubElementSeparator" class="ParserTest" classname="ParserTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/ParserTest.php" line="48" assertions="3" time="0.006124"/>
+    </testsuite>
+    <testsuite name="PediTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/PediTest.php" tests="4" assertions="5" errors="0" failures="0" skipped="0" time="0.891631">
+      <testcase name="testPediLoadsAnEDIFile" class="PediTest" classname="PediTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/PediTest.php" line="11" assertions="2" time="0.424623"/>
+      <testcase name="testPediHandlesLoadingBadFile" class="PediTest" classname="PediTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/PediTest.php" line="22" assertions="1" time="0.003654"/>
+      <testcase name="testThrowsErrorOnNoFile" class="PediTest" classname="PediTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/PediTest.php" line="32" assertions="1" time="0.003413"/>
+      <testcase name="testItLoadsTheAppropriateX12Schema" class="PediTest" classname="PediTest" file="/Volumes/G/paulmakarov/Documents/dev/edi_parse/tests/PediTest.php" line="39" assertions="1" time="0.459941"/>
+    </testsuite>
   </testsuite>
 </testsuites>
