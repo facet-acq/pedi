@@ -1,17 +1,18 @@
 
 
 Code Coverage Report:      
-  2018-02-04 23:01:54      
+  2018-02-05 21:49:04      
                            
  Summary:                  
-  Classes: 66.67% (2/3)    
-  Methods: 70.00% (7/10)   
-  Lines:   81.02% (111/137)
+  Classes: 50.00% (2/4)    
+  Methods: 50.00% (11/22)  
+  Lines:   74.49% (184/247)
 
-
-\EDI\X12::EDI\X12\Document
+\Pedi::Pedi\Pedi
+  Methods:  33.33% ( 4/12)   Lines:  66.36% ( 73/110)
+\Pedi\X12::Pedi\X12\Document
   Methods: 100.00% ( 2/ 2)   Lines: 100.00% ( 10/ 10)
-\EDI\X12::EDI\X12\Parser
+\Pedi\X12::Pedi\X12\Parser
   Methods: 100.00% ( 1/ 1)   Lines: 100.00% ( 71/ 71)
-\EDI\X12::EDI\X12\SchemaTree
+\Pedi\X12::Pedi\X12\SchemaTree
   Methods:  57.14% ( 4/ 7)   Lines:  53.57% ( 30/ 56)

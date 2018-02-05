@@ -53,7 +53,7 @@ class Pedi
     {
         try {
             $input_edi = file_get_contents($path);
-            $this->documents = Parser::parse($input_edi);
+            $this->documents = \Pedi\X12\Parser::parse($input_edi);
             $this->doSomething();
         } catch (Exception $e) {
             echo $e->getMessage();

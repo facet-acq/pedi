@@ -1,7 +1,7 @@
 <phpunit colors="true" bootstrap="vendor/autoload.php">
   <filter>
         <whitelist>
-            <directory suffix=".php">EDI/X12/</directory>
+            <directory suffix=".php">src/</directory>
         </whitelist>
     </filter>
     <logging>
