@@ -1,5 +1,6 @@
 <?php
-namespace EDI\X12;
+
+namespace Pedi\X12;
 
 class SchemaTree
 {
@@ -9,15 +10,10 @@ class SchemaTree
     public function __construct($schema = null)
     {
         if (!$schema) {
-
             throw new Exception('No X12 Schema provided to constructur()');
-
         } else {
-
             if ($this->import($schema)) {
-
                 $this->init();
-
             }
         }
     }
@@ -62,7 +58,6 @@ class SchemaTree
                 $field['count'] = 0;
 
                 $this->initialize_schema_tree($field['children'], $lvl + 1, $path);
-
             } else {
                 $field['data'] = array();
                 $field['depth'] = $lvl;
@@ -86,7 +81,7 @@ class SchemaTree
 
         return $str;
     }
-    
+
     /* Print Tree: traverse tree recursively and build output string
      * params: Array root, String return string
      * returns nothing. Note: use of pass by reference
@@ -109,7 +104,6 @@ class SchemaTree
                 $this->print_tree($value['children'], $str);
 
             } else {
-
                 $str .= str_repeat(
                     "   ",
                     $value['depth']

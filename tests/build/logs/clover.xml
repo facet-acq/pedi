@@ -2,7 +2,7 @@
 <coverage generated="1517785314">
   <project timestamp="1517785314">
     <package name="EDI\X12">
-      <file name="/Volumes/G/paulmakarov/Documents/dev/edi_parse/EDI/X12/Document.php">
+      <file name="/Users/daniel.furman/Development/facet/pedi/EDI/X12/Document.php">
         <class name="EDI\X12\Document" namespace="EDI\X12">
           <metrics complexity="5" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="12" coveredelements="12"/>
         </class>
@@ -20,7 +20,7 @@
         <line num="26" type="stmt" count="1"/>
         <metrics loc="28" ncloc="28" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="12" coveredelements="12"/>
       </file>
-      <file name="/Volumes/G/paulmakarov/Documents/dev/edi_parse/EDI/X12/Parser.php">
+      <file name="/Users/daniel.furman/Development/facet/pedi/EDI/X12/Parser.php">
         <class name="EDI\X12\Parser" namespace="EDI\X12">
           <metrics complexity="19" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="71" coveredstatements="71" elements="72" coveredelements="72"/>
         </class>

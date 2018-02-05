@@ -5,15 +5,12 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "EDI_PARSE\\": "EDI/"
-        },
-        "classmap": [
-            "EDI/"
-        ]
+            "Pedi\\": "src/"
+        }
     },
     "autoload-dev": {
         "psr-4": {
-            "EDI_PARSE\\": "EDI/"
+            "Pedi\\": "src/"
         }
     },
     "bin": ["bin/EDI_PARSE"],

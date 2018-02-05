@@ -8,6 +8,7 @@ Code Coverage Report:
   Methods: 70.00% (7/10)   
   Lines:   81.02% (111/137)
 
+
 \EDI\X12::EDI\X12\Document
   Methods: 100.00% ( 2/ 2)   Lines: 100.00% ( 10/ 10)
 \EDI\X12::EDI\X12\Parser
