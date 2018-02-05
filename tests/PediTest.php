@@ -1,9 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use EDI\Pedi;
-
-require "EDI/Pedi.php";
+use Pedi\Pedi;
 
 final class PediTest extends TestCase
 {
@@ -29,7 +27,7 @@ final class PediTest extends TestCase
      /**
      * @expectedException ArgumentCountError
      */
-    public function testThrowsErrorOnNoFile() 
+    public function testThrowsErrorOnNoFile()
     {
         $this->expectException(ArgumentCountError::class);
         $pedi = new Pedi();
@@ -42,5 +40,5 @@ final class PediTest extends TestCase
         $pedi->read(__DIR__ . '/test_files/bad_edi_two_beg_file.x12');
         $this->assertInternalType("array", $pedi->documents());
     }
-   
+
 }

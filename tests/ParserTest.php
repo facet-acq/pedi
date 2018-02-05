@@ -1,9 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use EDI\X12\Parser;
-
-require_once "EDI/X12/Parser.php";
+use Pedi\X12\Parser;
 
 final class ParserTest extends TestCase
 {
@@ -57,8 +55,8 @@ final class ParserTest extends TestCase
         $this->assertContains($doc[0]->segments[0][0], 'ISA');
         $this->assertContains($doc[0]->segments[0][16], '>');
         //$this->assertArraySubset($doc[0]->segments[17][1], $doc[0]->segments[17][1]);
-        
+
         //TODO: assert that we see the result of subelement separation.
-    
+
     }
 }
